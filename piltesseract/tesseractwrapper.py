@@ -8,10 +8,10 @@ Attributes:
         to use the former format if we can.
 
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 import os
 import platform
 import subprocess
@@ -118,7 +118,7 @@ def get_text_from_image(image, tesseract_dir_path=TESSERACT_DIR, stderr=None,
         commands.append('--user-words"{}"'.format(user_words_path))
     if user_patterns_path is not None:
         commands.append('--user-patterns"{}"'.format(user_patterns_path))
-    for config_var, value in config_variables.items():
+    for config_var, value in list(config_variables.items()):
         commands += ['-c', '{}={}'.format(config_var, value)]
     if config_name is not None:
         commands.append(config_name)
